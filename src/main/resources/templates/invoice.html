@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+	table,
+	th,
+	td {
+		border: 1px solid black;
+	}
+	</style>
+    <link rel="stylesheet" href="./style1.css">
+</head>
+
+<body data-th-object="${invoice}">
+ 
+        <div>
+            <p style="color:green" th:if="${status}=='success'">
+            <strong> YOU HAVE SUCCESSFULLY SUBMITTED THE ITEM! </strong></p>
+        </div>
+        <div style="color:indianred" th:if="${status}=='failed'">
+            <strong> YOU FAILED TO SUBMIT THE ITEM! </strong>
+        </div>
+
+        <div class="col s12 m7">
+                <h2 class="header">Your Delivery information</h2>
+            <div class="card horizontal">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>Order id</p>
+                        <a data-th-href="@{/view3/{quoteId}(quoteId=*{quoteId})}">
+                        <code data-th-text="*{quoteId}"></code>
+                        </a>
+                        <p>Name</p>
+                        <p data-th-text="*{name}"></p>
+                        <br>
+                        <p>Delivery Address</p>
+                        <p data-th-text="*{address}"></p>
+                        <br>
+                        <p>Total Cost</p>
+                        <p data-th-text="*{totalCost}"></p>
+                        <br>
+             
+                
+                       
+                    </div>
+              </div>
+
+            </div>
+
+        </div>
+
+   
+    </body>
+</html>

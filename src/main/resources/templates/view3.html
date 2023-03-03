@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Pizza Order Form</title>
+	<link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+	<header>
+		<h1>
+			Checkout Details
+		</h1>
+	</header>
+
+	<body>
+		<form method="post" role="form" th:action="@{/summary}" th:object="${user}" class="form-horizontal">
+		<fieldset id="deliveryinfo">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td>
+					<p th:text="${user.name}">
+				</td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td>
+				<p th:text="${user.address}">
+				</td>
+			</tr>
+		</table>
+		<table border="1" style="margin-top: 2vh; margin-bottom: 2vh;">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+		        <tr th:each="item : ${itemList}">
+		            <td><span th:text="${item.item}"> Item </span></td>
+		            <td><span th:text="${item.quantity}"> Quantity </span></td>
+		        </tr>
+		    </tbody>
+           
+
+		</table>
+		</fieldset>
+		</form>
+	</body>
+</html>
